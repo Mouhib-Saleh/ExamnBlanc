@@ -21,6 +21,9 @@ public class LoggingAspect {
         log.info("Début Exécution de la methode " + name + " : ");
     }
 
-    //@After("........")
-    //public void logMethodExit....
+    @After("execution(* tn.esprit.mouhibsaleh.Services.*.Imp*.void*(..))")
+    public void logMethodExit(JoinPoint joinPoint) {
+        String name = joinPoint.getSignature().getName();
+        log.info("Début Exécution de la methode " + name + " : ");
+    }
 }
